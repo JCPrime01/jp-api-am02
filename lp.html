@@ -1,0 +1,223 @@
+<!DOCTYPE html>                                                                                                                                                              
+  <html lang="pt-BR">                                                                                                                                                          
+  <head>                                                                                                                                                                       
+      <meta charset="UTF-8">                                                                                                                                                   
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">                                                              
+      <title>Comunidade HN - Oficial</title>  
+                                                                                                                                                                               
+      <script>                            
+      !function(f,b,e,v,n,t,s)                                                                                                                                                 
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?                                                                                                                        
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};                                                                                                                
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';                                                                                                                
+      n.queue=[];t=b.createElement(e);t.async=!0;                                                                                                                            
+      t.src=v;s=b.getElementsByTagName(e)[0];                                                                                                                                  
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');                                                                                                                       
+      fbq('init', '961619428689288');                                                                                                                                        
+      fbq('track', 'PageView');                                                                                                                                                
+                                                                                                                                                                             
+      async function dispararLead(e) {                                                                                                                                         
+        e.preventDefault();                                                                                                                                                    
+        const eventId = 'cr_' + Date.now();
+        fbq('track', 'CompleteRegistration', { currency: 'BRL', value: 0 }, { eventID: eventId });                                                                             
+                                                                                                                                                                             
+        try {                                                                                                                                                                  
+          await fetch('https://track-jp-production.up.railway.app/api/lead', {                                                                                                 
+            method: 'POST',                                                                                                                                                    
+            headers: { 'Content-Type': 'application/json' },                                                                                                                   
+            body: JSON.stringify({                                                                                                                                             
+              fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,                                                                                                         
+              fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+              userAgent: navigator.userAgent,                                                                                                                                  
+              eventId: eventId                                                                                                                                                 
+            })                                                                                                                                                                 
+          });                                                                                                                                                                  
+        } catch(err) {}                                                                                                                                                        
+                                                                                                                                                                               
+        window.location.href = 'https://ra.redirecionar.online/';                                                                                                            
+      }
+      </script>                                                                                                                                                                
+   
+      <link rel="preconnect" href="https://fonts.googleapis.com">                                                                                                              
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap" rel="stylesheet">                                              
+                                              
+      <style>                                                                                                                                                                  
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+                                                                                                                                                                               
+        body {                                                                                                                                                               
+          background-color: #000E01;                                                                                                                                           
+          height: 100vh;                                                                                                                                                       
+          display: flex;
+          flex-direction: column;                                                                                                                                              
+          align-items: center;                                                                                                                                               
+          justify-content: center;            
+          font-family: 'Inter', sans-serif;
+          padding: 10px;
+          overflow: hidden;                                                                                                                                                    
+        }                                     
+                                                                                                                                                                               
+        .card {                                                                                                                                                              
+          width: 100%;                                                                                                                                                         
+          max-width: 380px;
+          background: #001301;                                                                                                                                                 
+          border: 1px solid #02FF6B;                                                                                                                                         
+          border-radius: 20px;            
+          padding: 15px 20px 25px;
+          display: flex;                                                                                                                                                       
+          flex-direction: column;         
+          align-items: center;                                                                                                                                                 
+          gap: 8px;                                                                                                                                                            
+          position: relative;                 
+        }                                                                                                                                                                      
+                                                                                                                                                                             
+        .vagas-box {                                                                                                                                                           
+          background: rgba(255, 255, 0, 0.1);
+          border: 1px solid #FFFF00;                                                                                                                                           
+          border-radius: 8px;                                                                                                                                                
+          padding: 5px 15px;
+          margin-bottom: 5px;                                                                                                                                                  
+          animation: pulse-yellow 2s infinite;
+        }                                                                                                                                                                      
+                                                                                                                                                                               
+        .vagas-text { color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        #numero-vagas { color: #FFFF00; font-size: 16px; font-weight: bold; }                                                                                                  
+                                                                                                                                                                             
+        @keyframes pulse-yellow {                                                                                                                                              
+          0% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }
+          50% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.3); }                                                                                                                 
+          100% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }                                                                                                                 
+        }                                                                                                                                                                      
+                                                                                                                                                                               
+        .card img { width: 100%; max-width: 280px; height: auto; }                                                                                                             
+                                                                                                                                                                               
+        h2.white {                                                                                                                                                             
+          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
+          font-size: 24px;
+          color: #fff;                                                                                                                                                         
+          text-align: center;                                                                                                                                                
+          line-height: 1;                                                                                                                                                      
+        }                                                                                                                                                                    
+                                                                                                                                                                               
+        h2.green {
+          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
+          font-size: 32px;                                                                                                                                                   
+          color: #00EC51;                 
+          text-align: center;
+          line-height: 1;                                                                                                                                                      
+        }                                     
+                                                                                                                                                                               
+        .subtitle {                                                                                                                                                          
+          font-size: 13px;                                                                                                                                                     
+          color: #fff;
+          text-align: center;                                                                                                                                                  
+          line-height: 1.3;                                                                                                                                                  
+        }                                     
+                                          
+        .btn {
+          display: block;                                                                                                                                                      
+          width: 100%;
+          background: #00EC51;                                                                                                                                                 
+          color: #000E01;                                                                                                                                                    
+          text-align: center;                 
+          font-size: 15px;                
+          font-weight: 800;
+          padding: 14px;                                                                                                                                                       
+          border-radius: 50px;                
+          text-decoration: none;                                                                                                                                               
+          margin-top: 10px;                                                                                                                                                  
+          box-shadow: 0 0 20px rgba(0, 236, 81, 0.4);                                                                                                                          
+        }                                     
+                                                                                                                                                                               
+        .toast {                                                                                                                                                             
+          position: fixed;                                                                                                                                                     
+          top: 20px;
+          left: 50%;                                                                                                                                                           
+          transform: translate(-150vw, 0);                                                                                                                                   
+          background: #001301;
+          border: 1px solid #02FF6B;                                                                                                                                           
+          border-radius: 12px;
+          padding: 10px 15px;                                                                                                                                                  
+          display: flex;                                                                                                                                                     
+          align-items: center;
+          gap: 10px;
+          z-index: 9999;
+          transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+          white-space: nowrap;                
+        }                                 
+                                                                                                                                                                               
+        .toast.show { transform: translate(-50%, 0); }                                                                                                                         
+                                                                                                                                                                               
+        .toast-icon { width: 10px; height: 10px; background: #02FF6B; border-radius: 50%; box-shadow: 0 0 10px #02FF6B; }                                                      
+        .toast-text { color: #fff; font-size: 13px; }                                                                                                                          
+        .toast-text b { color: #FFFF00; }     
+                                                                                                                                                                               
+        footer { margin-top: 15px; font-size: 10px; color: #555; text-align: center; }                                                                                       
+      </style>                                                                                                                                                                 
+  </head>                                                                                                                                                                    
+  <body>                                                                                                                                                                       
+                                                                                                                                                                             
+      <div id="notif-toast" class="toast">                                                                                                                                     
+          <div class="toast-icon"></div>                                                                                                                                     
+          <p class="toast-text"><b id="notif-nome">Marcos</b> acabou de entrar!</p>
+      </div>                                  
+                                          
+      <div class="card">
+        <div class="vagas-box">                                                                                                                                                
+            <p class="vagas-text">Restam apenas <span id="numero-vagas">12</span> vagas</p>
+        </div>                                                                                                                                                                 
+                                                                                                                                                                             
+        <img src="https://grupogratuito.website/wp-content/uploads/2025/10/Jota_LP-WhatsApp-2.png" alt="Jogador Caro">
+                                                                                                                                                                               
+        <h2 class="white">ACESSO LIBERADO AO</h2>
+        <h2 class="green">BILHETE COM A ODD MAIS SEGURA DO MERCADO</h2>                                                                                                                              
+                                                                                                                                                                             
+        <p class="subtitle"><strong>Fale</strong> comigo <strong>AGORA</strong> para <strong>pegar</strong> o bilhete.</p>                                                     
+                                                                                                                                                                             
+        <a href="https://ra.redirecionar.online/" class="btn" onclick="dispararLead(event)">PEGAR AGORA 🚀</a>                                                                
+      </div>                                                                                                                                                                   
+                                                                                                                                                                               
+      <footer>                                                                                                                                                                 
+        <strong>Proibido para menores de 18 anos.</strong><br>                                                                                                               
+        © 2025 – Jogador Caro                                                                                                                                                  
+      </footer>                                                                                                                                                              
+                                              
+      <script>                            
+        const nomes = ["Lucas", "Matheus", "Gabriel", "Felipe", "Rodrigo", "Rafael", "Bruno", "Daniel", "Gustavo", "Thiago", "Henrique", "Paulo", "Ariel", "Adriano", "Diogo",
+  "Ricardo", "Ivan", "Luan", "João", "Pedro", "Vitor", "Caique", "Douglas", "Marcos"];                                                                                         
+                                          
+        function mostrarNotificacao() {                                                                                                                                        
+          const toast = document.getElementById('notif-toast');                                                                                                                
+          const nomeEl = document.getElementById('notif-nome');
+          if (toast && nomeEl) {                                                                                                                                               
+              nomeEl.innerText = nomes[Math.floor(Math.random() * nomes.length)];                                                                                            
+              toast.classList.add('show');                                                                                                                                     
+              setTimeout(() => { toast.classList.remove('show'); }, 3000);                                                                                                   
+          }
+        }                                                                                                                                                                      
+   
+        function iniciarFunil() {                                                                                                                                              
+          let contagem = 12;                                                                                                                                                 
+          const display = document.getElementById('numero-vagas');
+                                                                                                                                                                               
+          const timerVagas = setInterval(() => {
+            if (contagem > 2) {                                                                                                                                                
+              if (Math.random() > 0.3) {                                                                                                                                     
+                contagem--;                                                                                                                                                    
+                if(display) display.innerText = contagem;
+                setTimeout(mostrarNotificacao, 300);                                                                                                                           
+              }                                                                                                                                                              
+            } else { clearInterval(timerVagas); }
+          }, 4500);
+                                                                                                                                                                               
+          setTimeout(() => {
+              contagem--;                                                                                                                                                      
+              if(display) display.innerText = contagem;                                                                                                                      
+              mostrarNotificacao();           
+          }, 800);                        
+        }
+        window.onload = iniciarFunil;                                                                                                                                          
+      </script>
+  </body>                                                                                                                                                                      
+  </html>
